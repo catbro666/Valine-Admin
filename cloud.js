@@ -45,6 +45,18 @@ AV.Cloud.afterSave('Comment', function (req) {
     return sendNotification(currentComment, req.meta.remoteAddress);
 });
 
+AV.Cloud.beforeUpdate('Counter', async function(request) {
+    var query = new AV.Query("Counter");
+    if (request.object.updatedKeys.includes('time')) {
+        return query.get(request.object.id).then(function (obj) {
+            if (obj.get("time") > request.object.get("time")) {
+                throw new AV.Cloud.Error('Invalid update!');
+            }
+            return request.object.save();
+        });
+    }
+});
+
 AV.Cloud.define('resend_mails', function(req) {
     let query = new AV.Query(Comment);
     query.greaterThanOrEqualTo('createdAt', new Date(new Date().getTime() - 24*60*60*1000));

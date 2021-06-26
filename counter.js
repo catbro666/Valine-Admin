@@ -1,6 +1,6 @@
 var AV = require('leanengine');
 
-AV.Cloud.beforeUpdate('Counter', async function(req) {
+AV.Cloud.beforeUpdate('Counter', function(req) {
     var query = new AV.Query("Counter");
     if (req.object.updatedKeys.includes('time')) {
         return query.get(req.object.id).then(function (obj) {

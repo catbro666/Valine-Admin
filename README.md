@@ -4,6 +4,8 @@ Valine Admin 是 [Valine 评论系统](https://deserts.io/diy-a-comment-system/)
 
 [评论在线演示及相关功能测试](https://panjunwen.github.io/Valine/)
 
+增加了Counter的BeforeUpdate云函数，用于防止随意篡改阅读量。
+
 ## 相关项目
 
 评论框前端：[Valine on Github](https://github.com/DesertsP/Valine)
@@ -32,7 +34,7 @@ AKISMET_KEY | xxxxxxxx | [可选]Akismet Key 用于垃圾评论检测，设为MA
 
 ![](assets/imgs/envs.png)
 
-切换到「云引擎-部署」，部署模式选择「部署项目-Git部署」，分支「master」，手动部署目标环境为「生产环境」在[Leancloud](https://leancloud.cn/dashboard/#/apps)云引擎设置界面，填写代码库并保存：https://github.com/DesertsP/Valine-Admin.git，即可一键部署。
+切换到「云引擎-部署」，部署模式选择「部署项目-Git部署」，分支「master」，手动部署目标环境为「生产环境」在[Leancloud](https://leancloud.cn/dashboard/#/apps)云引擎设置界面，填写代码库并保存：https://github.com/catbro666/Valine-Admin.git，即可一键部署。
 
 ![deploy3](assets/imgs/deploy4.png)
 
